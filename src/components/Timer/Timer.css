@@ -1,0 +1,16 @@
+#timer{
+    border: 5px solid white;
+    border-radius: 15px;
+    width: 40%;
+    margin: 2rem 0;
+
+}
+#timer-label{
+    display: inline-block;
+    margin: 1rem 0;
+    font-size: 2rem;
+}
+
+#time-left{
+    font-size: 3rem;
+}

@@ -1,0 +1,14 @@
+.labels{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.label-section{
+    display: flex;
+    flex-direction: column;
+}
+.label-section > div{
+    display: flex;
+    justify-content: space-around;
+}
