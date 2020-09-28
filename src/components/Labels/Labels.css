@@ -12,3 +12,8 @@
     display: flex;
     justify-content: space-around;
 }
+
+.label-section > div > p{
+
+    font-size: 30px;
+}
