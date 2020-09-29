@@ -12,7 +12,7 @@ const defaultState = {
     }
     ,
     play : false,
-    setssionTimer: true
+    setssionTimer: true,
     
 }
 class Pomodoro extends Component {
@@ -25,12 +25,12 @@ class Pomodoro extends Component {
         },
         play : false,
         sessionTimer: true,
-       
     }
 
     timerInterval = 0;
 
     checkStateValue = (val, op) => {
+        // i cannot set the break/session length less than 1 and more than 60
         if(val === 1 && op === "dec"){
             return false
         }else if(val === 60 && op === "inc"){
@@ -42,16 +42,18 @@ class Pomodoro extends Component {
     }
 
     setStateHandler = (stateType, operation) => {
-        // console.log("setStateHandler :", stateType, operation)
         this.setState(prevState => {
             if(!this.checkStateValue(prevState[stateType], operation)){
                 return prevState
             }
            const newLength = operation === "inc" ? prevState[stateType] + 1 : prevState[stateType] - 1;
+        //    new Timer , if the current timer is on session, and i update break, timer should 
+        // not be modified
+        // if current timer is on session and i update session length , timer should be updated
+        // same thing goes for session
            const newTimer = prevState.sessionTimer && stateType === "sessionLength" ? 
            {minutes: newLength, seconds: 0} : !prevState.sessionTimer && stateType === "breakLength" ? 
            {minutes : newLength, seconds : 0} : {minutes: prevState.timer.minutes, seconds : prevState.timer.seconds};
-           console.log("sessionTImer : ", prevState.sessionTimer, " stateType: ", stateType)
             return{
                 [stateType]: newLength,
                 timer:newTimer
@@ -61,8 +63,8 @@ class Pomodoro extends Component {
     }
 
     countersHandler = (type, operation) => {
-        // console.log("countersHandler clicked, ",type, operation)
-        if(this.state.play){
+        if(this.state.play){ // if the timer is running , i cant update session or break values
+            
             return
         }
         if(type === "session"){
@@ -73,23 +75,25 @@ class Pomodoro extends Component {
     }
 
     resetTimerHandler = () => {
-        console.log("resetTimeHandler")
         this.setState(defaultState)
         clearInterval(this.timerInterval)
     }
 
     startTimerHandler = () => {
         const togglePlay = !this.state.play;
-        this.setState({play: togglePlay});           
+        this.setState({play: togglePlay}); 
+
                 const setTime = () => {
                     this.setState(prevState => {
                         if(prevState.timer.minutes === 0  && prevState.timer.seconds === 0){
+                            this.audioBeep.play();
                             return{
                                 sessionTimer: !prevState.sessionTimer,
                                 timer:{
                                     minutes: !prevState.sessionTimer ? prevState.sessionLength : prevState.breakLength,
                                     seconds: 0
-                                }
+                                },
+                                playAudio: true
                             }
                             
                         }
@@ -109,12 +113,11 @@ class Pomodoro extends Component {
                             }
                     }
                     })
-                }
-               
+                }               
                 if(togglePlay){
                     this.timerInterval = setInterval(setTime, 1000);
                 }else{
-                        clearInterval(this.timerInterval);
+                  clearInterval(this.timerInterval);
                 }
                 
     }
@@ -126,7 +129,15 @@ class Pomodoro extends Component {
                 countersHandler={this.countersHandler} />
                 <Timer timerState={this.state.timer} sessionTimer={this.state.sessionTimer} 
                 />
-                <Buttons play={this.startTimerHandler} reset={this.resetTimerHandler}/>
+                <Buttons play={this.startTimerHandler} reset={this.resetTimerHandler} playState={this.state.play}/>
+                <audio
+                    id="beep"
+                    preload="auto"
+                    ref={(audio) => {
+                        this.audioBeep = audio;
+                    }}
+                    src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"
+                />
             </div>
         );
     }

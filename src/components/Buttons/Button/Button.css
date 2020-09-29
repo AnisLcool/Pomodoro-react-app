@@ -7,10 +7,16 @@ button{
     outline: none;
     font-size: 2rem;
     background-color: red;
+    border-radius: 50%;
+    margin: 0 1rem;
     
 }
 button:hover{
     cursor: pointer;
     transform: scale(1.2);
 
+}
+
+.stoped{
+    color: green;
 }

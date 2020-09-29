@@ -1,11 +1,12 @@
 .Pomodoro{
-    width: 600px;
-    height:500px;
-    position: absolute;
+    width: 510px;
+    height:510px;
+    /* position: absolute;
     top:50%;
     left:50%;
-    transform: translate(-50%,-50%);
-    background-color: red;
+    transform: translate(-50%,-50%); */
+    /* background-color: red; */
+    background: linear-gradient(#f00202 0%, #bd0404 10%, #7d0404 50%, #4a0202 100%);
     border-radius: 5px;
     font-size: 25px;
     font-weight: 700;
@@ -14,4 +15,22 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    border-radius: 50%;
+    position: relative;
+    -webkit-box-shadow: 2px 0px 29px 8px rgba(189,4,4,0.57);
+-moz-box-shadow: 2px 0px 29px 8px rgba(189,4,4,0.57);
+box-shadow: 2px 0px 29px 8px rgba(189,4,4,0.57);
 }
+
+
+  .Pomodoro::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.6  );
+    bottom: -60px;
+    z-index: -1;
+    filter: blur(10px);
+  }
