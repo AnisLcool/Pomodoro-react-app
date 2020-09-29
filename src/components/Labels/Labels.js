@@ -3,7 +3,6 @@ import Button from '../Buttons/Button/Button';
 import "./Labels.css";
 
 function Labels({ breakLength, sessionLength, countersHandler }) {
-    console.log("labels render")
     return (
         <div className="labels">
             <div className="label-section">
