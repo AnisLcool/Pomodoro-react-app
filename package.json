@@ -13,7 +13,7 @@
   },
   "homepage": "https://anislcool.github.io/Pomodoro-react-app",
   "scripts": {
-    "predeploy": "npm run deploy",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
