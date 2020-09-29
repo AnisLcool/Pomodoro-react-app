@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Pomodoro-react-app/static/css/main.6a34c0a4.chunk.css",
+    "main.js": "/Pomodoro-react-app/static/js/main.2c378108.chunk.js",
+    "main.js.map": "/Pomodoro-react-app/static/js/main.2c378108.chunk.js.map",
+    "runtime-main.js": "/Pomodoro-react-app/static/js/runtime-main.3812fc9d.js",
+    "runtime-main.js.map": "/Pomodoro-react-app/static/js/runtime-main.3812fc9d.js.map",
+    "static/js/2.69929f89.chunk.js": "/Pomodoro-react-app/static/js/2.69929f89.chunk.js",
+    "static/js/2.69929f89.chunk.js.map": "/Pomodoro-react-app/static/js/2.69929f89.chunk.js.map",
+    "index.html": "/Pomodoro-react-app/index.html",
+    "precache-manifest.7f61577343356d82202ba028fd648a3f.js": "/Pomodoro-react-app/precache-manifest.7f61577343356d82202ba028fd648a3f.js",
+    "service-worker.js": "/Pomodoro-react-app/service-worker.js",
+    "static/css/main.6a34c0a4.chunk.css.map": "/Pomodoro-react-app/static/css/main.6a34c0a4.chunk.css.map",
+    "static/js/2.69929f89.chunk.js.LICENSE.txt": "/Pomodoro-react-app/static/js/2.69929f89.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3812fc9d.js",
+    "static/js/2.69929f89.chunk.js",
+    "static/css/main.6a34c0a4.chunk.css",
+    "static/js/main.2c378108.chunk.js"
+  ]
+}
